@@ -234,132 +234,276 @@ body {
     display: block;
   }
 
+  .social-icons {
+    display: none;
+  }
+
   .header {
     flex-direction: row;
     justify-content: space-between;
   }
 }
 
-.video-section {
-  max-width: 1200px;
-  margin: 60px auto;
-  text-align: center;
-  padding: 0 20px;
+/* Breadcrumbs */
+.breadcrumb {
+  margin: 20px 0;
+  font-size: 14px;
 }
 
-.video-title {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-align: center;
+.breadcrumb a {
+  color: #000;
+  text-decoration: none;
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* Section title */
+.news-section {
   max-width: 1200px;
   margin: 0 auto;
-  cursor: pointer;
-  overflow: hidden;
-  padding-bottom: 56.25%; /* Rasio aspek 16:9 */
-  height: 0;
+  padding: 0 15px;
 }
 
-.video-thumbnail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 50px;
-  background-color: rgba(255, 0, 0, 0.8);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.play-button::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-left: 25px solid white;
-}
-
-.video-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  z-index: 1;
-}
-
-.video-name {
+.section-title {
   font-size: 36px;
-  color: white;
-  text-transform: uppercase;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 30px;
 }
 
-.youtube-embed-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
+/* News grid */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
-.youtube-embed-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+@media (max-width: 992px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
+  .news-grid {
+    grid-template-columns: 1fr;
   }
+}
 
-  .nav {
-    margin: 20px 0;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+/* News items */
+.news-item {
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
 
-  .social-icons {
-    margin-top: 20px;
-  }
+.news-item:hover {
+  transform: translateY(-5px);
+}
 
-  .title {
-    font-size: 32px;
-  }
+.news-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 
-  .video-title {
-    font-size: 24px;
-  }
+.news-image {
+  height: 250px;
+  overflow: hidden;
+}
 
-  .video-name {
-    font-size: 28px;
-  }
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-item:hover .news-image img {
+  transform: scale(1.05);
+}
+
+.news-title {
+  font-size: 20px;
+  margin: 15px 0 10px;
+  padding: 0 15px;
+}
+
+.news-date {
+  font-size: 14px;
+  color: #777;
+  padding: 0 15px;
+  margin-bottom: 10px;
+}
+
+.news-excerpt {
+  font-size: 16px;
+  padding: 0 15px 15px;
+  color: #555;
+}
+
+.button-news-next {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.btn-news-next {
+  display: inline-block;
+  padding: 10px 10px;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  border: 2px solid #000;
+}
+
+/* Listen Section Styles */
+.listen-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.listen-section h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.playlist-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.playlist-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+  gap: 20px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.playlist-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.playlist-card {
+  flex: 0 0 auto;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist-image {
+  width: 260px;
+  height: 260px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.playlist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.playlist-card:hover .playlist-image img {
+  transform: scale(1.05);
+}
+
+.playlist-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.playlist-type {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.playlist-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  padding: 8px 15px;
+  font-size: 14px;
+  background: none;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.playlist-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.playlist-button i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* Custom Scrollbar Control */
+.custom-scrollbar-container {
+  width: 100%;
+  height: 20px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #111;
+  padding: 0 5px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.custom-scrollbar-track {
+  flex: 1;
+  height: 8px;
+  background-color: #111;
+  position: relative;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.custom-scrollbar-thumb {
+  height: 8px;
+  width: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  cursor: pointer;
+}
+
+.custom-scrollbar-button {
+  background-color: #111;
+  border: none;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.custom-scrollbar-button i {
+  font-size: 16px;
 }
 
 .footer {
@@ -641,9 +785,7 @@ input:checked + .toggle-slider:before {
 .footer-social {
   flex: 0 0 100%;
   margin-top: 40px;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: left;
+  padding-left: 300px;
 }
 
 .social-heading {
@@ -698,17 +840,16 @@ input:checked + .toggle-slider:before {
 }
 
 /* Responsive Design */
-/* Responsive Design untuk tablet dan ke atas */
 @media (min-width: 768px) {
   .footer-container {
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: row; /* Tambahkan ini di media query */
+    align-items: flex-start; /* Supaya normal kiri */
   }
 
   .footer-logo {
-    flex: 0 0 100%;
-    margin-bottom: 30px;
-    text-align: center;
+    flex: 0 0 100%; /* Tetap lebar penuh */
+    margin-bottom: 30px; /* Jaga jarak bawah */
+    text-align: center; /* Biar logonya tetap tengah */
   }
 
   .footer-navigation {
@@ -719,151 +860,5 @@ input:checked + .toggle-slider:before {
   .footer-social {
     flex: 0 0 50%;
     margin-top: 0;
-    padding-left: 300px;
   }
-}
-
-/* Listen Section Styles */
-.listen-section {
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
-.listen-section h2 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #000;
-}
-
-.playlist-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.playlist-scroll {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 20px;
-  gap: 20px;
-  scrollbar-width: none; /* Firefox */
-}
-
-.playlist-scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
-}
-
-.playlist-card {
-  flex: 0 0 auto;
-  width: 260px;
-  display: flex;
-  flex-direction: column;
-}
-
-.playlist-image {
-  width: 260px;
-  height: 260px;
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-.playlist-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.playlist-card:hover .playlist-image img {
-  transform: scale(1.05);
-}
-
-.playlist-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.playlist-type {
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.playlist-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #000;
-  padding: 8px 15px;
-  font-size: 14px;
-  background: none;
-  color: #000;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  width: fit-content;
-}
-
-.playlist-button:hover {
-  background-color: #000;
-  color: #fff;
-}
-
-.playlist-button i {
-  margin-right: 8px;
-  font-size: 16px;
-}
-
-/* Custom Scrollbar Control */
-.custom-scrollbar-container {
-  width: 100%;
-  height: 20px;
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #111;
-  padding: 0 5px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.custom-scrollbar-track {
-  flex: 1;
-  height: 8px;
-  background-color: #111;
-  position: relative;
-  margin: 0 5px;
-  border-radius: 5px;
-}
-
-.custom-scrollbar-thumb {
-  height: 8px;
-  width: 30px;
-  background-color: #fff;
-  border-radius: 10px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  cursor: pointer;
-}
-
-.custom-scrollbar-button {
-  background-color: #111;
-  border: none;
-  color: #fff;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.custom-scrollbar-button i {
-  font-size: 16px;
 }

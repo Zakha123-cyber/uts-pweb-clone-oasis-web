@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oasis - Official Website</title>
-    <link rel="stylesheet" href="styles/style-landing-page.css">
+    <title>News</title>
+    <link rel="stylesheet" href="styles/style-news-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -101,69 +101,109 @@
     </header>
 
     <main>
-        <section class="main-content">
-            <h1 class="title">Some Might Say</h1>
-            <h2 class="subtitle">30th Anniversary</h2>
-            <p class="product-info">Limited edition 7" single</p>
-            <a href="#" class="cta-button">OUT NOW</a>
-
-            <img src="source/img/landing-page-1.png" alt="Some Might Say Album Cover" class="product-image">
-        </section>
-
-        <section class="video-section">
-            <h2 class="video-title">Watch the brand new 'Some Might Say' official visualiser</h2>
-
-            <div class="video-container" id="video-container">
-                <!-- Thumbnail dan overlay akan ditampilkan sampai diklik -->
-                <img src="https://img.youtube.com/vi/TpQjnRbj8bw/hqdefault.jpg" alt="Some Might Say Video Thumbnail"
-                    class="video-thumbnail" id="video-thumbnail">
-                <div class="play-button" id="play-button"></div>
-                <div class="video-overlay" id="video-overlay">
-                    <div class="video-name">Some Might Say</div>
-                </div>
-
-                <!-- YouTube iframe akan tersembunyi sampai thumbnail diklik -->
-                <div class="youtube-embed-container" id="youtube-embed-container" style="display: none;">
-                    <iframe width="1200" height="675" src="https://www.youtube.com/embed/TpQjnRbj8bw"
-                        title="Oasis - Some Might Say (Official Visualiser '25)" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </section>
         <section class="news-section">
-            <h2>Latest News</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-image">
-                        <img src="source/img/latest-news-1.png" alt="Some Might Say 30th Anniversary">
-                    </div>
-                    <h3 class="news-title">'Some Might Say' Is 30!</h3>
-                    <div class="news-date">April 25, 2025</div>
-                    <p class="news-excerpt">On the 24th April, Oasis' debut number 1, 'Some Might Say', turned...</p>
-                    <a href="#" class="read-more">Read more</a>
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="#">Home</a> › News
                 </div>
 
-                <div class="news-card">
-                    <div class="news-image">
-                        <img src="source/img/latest-news-2.jpg" alt="Record Store Day 2025">
-                    </div>
-                    <h3 class="news-title">Record Store Day 2025</h3>
-                    <div class="news-date">April 14, 2025</div>
-                    <p class="news-excerpt">Released exclusively for Record Store Day, a very special 15th anniversary
-                        vinyl...</p>
-                    <a href="#" class="read-more">Read more</a>
-                </div>
+                <h1 class="section-title">News</h1>
 
-                <div class="news-card">
-                    <div class="news-image">
-                        <img src="source/img/latest-news-3.webp" alt="Manchester City x Oasis capsule collection">
+                <div class="news-grid">
+                    <!-- News Item 1 -->
+                    <div class="news-item">
+                        <a href="#" class="news-link">
+                            <div class="news-image">
+                                <img src="source/img/news-1.png" alt="Some Might Say vinyl record" />
+                            </div>
+                            <h2 class="news-title">'Some Might Say' Is 30!</h2>
+                            <div class="news-date">25th April 2025</div>
+                            <p class="news-excerpt">
+                                On the 24th April, Oasis' debut number 1, 'Some Might Say', turned 30! To celebrate the
+                                anniversary, a limited-edition, numbered, pearl coloured 7" single has...
+                            </p>
+                        </a>
                     </div>
-                    <h3 class="news-title">Manchester City x Oasis capsule collection</h3>
-                    <div class="news-date">February 10, 2025</div>
-                    <p class="news-excerpt">Manchester City and Oasis have teamed up to create a limited edition...</p>
-                    <a href="#" class="read-more">Read more</a>
+
+                    <!-- News Item 2 -->
+                    <div class="news-item">
+                        <a href="#" class="news-link">
+                            <div class="news-image">
+                                <img src="source/img/news-2.jpg" alt="Record Store Day vinyl collection" />
+                            </div>
+                            <h2 class="news-title">Record Store Day 2025</h2>
+                            <div class="news-date">14th April 2025</div>
+                            <p class="news-excerpt">
+                                Released exclusively for Record Store Day, a very special 15th anniversary vinyl LP of
+                                'Time Flies... 1994-2009' has been made available. 'Time Flies' is the complete...
+                            </p>
+                        </a>
+                    </div>
+
+                    <!-- News Item 3 -->
+                    <div class="news-item">
+                        <a href="#" class="news-link">
+                            <div class="news-image">
+                                <img src="source/img/news-3.webp" alt="Manchester City x Oasis merchandise" />
+                            </div>
+                            <h2 class="news-title">Manchester City x Oasis capsule collection</h2>
+                            <div class="news-date">10th February 2025</div>
+                            <p class="news-excerpt">
+                                Manchester City and Oasis have teamed up to create a limited edition capsule collection
+                                celebrating the anniversary of Definitely Maybe and the band's close connection...
+                            </p>
+                        </a>
+                    </div>
+                    <!-- News Item 4 -->
+                    <div class="news-item">
+                        <a href="#" class="news-link">
+                            <div class="news-image">
+                                <img src="source/img/news-4.png" alt="Some Might Say vinyl record" />
+                            </div>
+                            <h2 class="news-title">'Standing On The Shoulder of Giants' is 25!</h2>
+                            <div class="news-date">7th February 2025</div>
+                            <p class="news-excerpt">
+                                February 28th marks the 25th anniversary of Oasis' fourth studio album, 'Standing On The
+                                Shoulder Of Giants. To celebrate, two collector's formats are avaible on...
+                            </p>
+                        </a>
+                    </div>
+
+                    <!-- News Item 5 -->
+                    <div class="news-item">
+                        <a href="#" class="news-link">
+                            <div class="news-image">
+                                <img src="source/img/news-5.png" alt="Record Store Day vinyl collection" />
+                            </div>
+                            <h2 class="news-title">'Whateve' is 30!</h2>
+                            <div class="news-date">19th December 2024</div>
+                            <p class="news-excerpt">
+                                Released on December 19th 1994, 'Whatever' was a stand-alone single that bridged the gap
+                                between albums 'Definitely Maybe' and '(What's The Story) Morning Glory'. To...
+                            </p>
+                        </a>
+                    </div>
+
+                    <!-- News Item 6 -->
+                    <div class="news-item">
+                        <a href="#" class="news-link">
+                            <div class="news-image">
+                                <img src="source/img/news-6.png" alt="Manchester City x Oasis merchandise" />
+                            </div>
+                            <h2 class="news-title">'Love Forever' Represent x Oasis Collection</h2>
+                            <div class="news-date">13th December 2024</div>
+                            <p class="news-excerpt">
+                                Celebrating 30 years of 'Definitely Maybe' and 'Whatever', Oasis are releasing a new
+                                limited edition capsule collection. 'Love Forever' Represent x Oasis Collection will be
+                                available on December 13th...
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="button-news-next">
+                    <a href="" class="btn-news-next">1</a>
+                    <a href="" class="btn-news-next">2</a>
+                    <a href="" class="btn-news-next">Next</a>
                 </div>
             </div>
         </section>
@@ -365,7 +405,7 @@
         </section>
     </footer>
 
-    <script src="js/script-landing-page.js"> </script>
+    <script src="js/script-news-page.js"></script>
 </body>
 
 </html>
