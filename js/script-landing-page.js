@@ -10,13 +10,18 @@ closeBtn.addEventListener("click", () => {
   mobileMenu.style.display = "none";
 });
 
-// Countdown Timer
-function updateCountdown() {
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 67); // 67 days from now
+// Tentukan tanggal target hanya sekali
+const targetDate = new Date();
+targetDate.setDate(targetDate.getDate() + 67);
 
+function updateCountdown() {
   const now = new Date();
   const diff = targetDate - now;
+
+  if (diff <= 0) {
+    document.querySelector(".countdown-container").innerHTML = "<div>Event Started!</div>";
+    return;
+  }
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -24,29 +29,43 @@ function updateCountdown() {
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   document.querySelector(".countdown-box:nth-child(1)").innerHTML = `
-                <div class="countdown-digit">${Math.floor(days / 10)}</div>
-                <div class="countdown-digit">${days % 10}</div>
-                <span class="countdown-label">DAYS</span>
-            `;
+    <div class="digit-group">
+      <div class="countdown-digit">${Math.floor(days / 10)}</div>
+      <div class="countdown-digit">${days % 10}</div>
+    </div>
+    <span class="countdown-label">DAYS</span>
+  `;
 
   document.querySelector(".countdown-box:nth-child(2)").innerHTML = `
-                <div class="countdown-digit">${hours < 10 ? "0" + hours : hours}</div>
-                <span class="countdown-label">HOURS</span>
-            `;
+    <div class="digit-group">
+      <div class="countdown-digit">${hours < 10 ? "0" + hours : hours}</div>
+    </div>
+    <span class="countdown-label">HOURS</span>
+  `;
 
   document.querySelector(".countdown-box:nth-child(3)").innerHTML = `
-                <div class="countdown-digit">${Math.floor(minutes / 10)}</div>
-                <div class="countdown-digit">${minutes % 10}</div>
-                <span class="countdown-label">MINUTES</span>
-            `;
+    <div class="digit-group">
+      <div class="countdown-digit">${Math.floor(minutes / 10)}</div>
+      <div class="countdown-digit">${minutes % 10}</div>
+    </div>
+    <span class="countdown-label">MINUTES</span>
+  `;
 
   document.querySelector(".countdown-box:nth-child(4)").innerHTML = `
-                <div class="countdown-digit">${Math.floor(seconds / 100)}</div>
-                <div class="countdown-digit">${Math.floor((seconds % 100) / 10)}</div>
-                <div class="countdown-digit">${seconds % 10}</div>
-                <span class="countdown-label">SECONDS</span>
-            `;
+    <div class="digit-group">
+      <div class="countdown-digit">${Math.floor(seconds / 100)}</div>
+      <div class="countdown-digit">${Math.floor((seconds % 100) / 10)}</div>
+      <div class="countdown-digit">${seconds % 10}</div>
+    </div>
+    <span class="countdown-label">SECONDS</span>
+  `;
 }
+
+// Panggil pertama kali
+updateCountdown();
+
+// Jalankan setiap detik
+setInterval(updateCountdown, 1000);
 
 document.addEventListener("DOMContentLoaded", function () {
   const videoContainer = document.getElementById("video-container");
@@ -98,49 +117,54 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Optional JavaScript for additional functionality
-document.addEventListener("DOMContentLoaded", function () {
-  const newsCards = document.querySelectorAll(".news-card");
-
-  newsCards.forEach((card) => {
-    card.addEventListener("click", function (e) {
-      // If the click is not on the "Read more" link itself, find and click the link
-      if (!e.target.classList.contains("read-more")) {
-        const readMoreLink = this.querySelector(".read-more");
-        if (readMoreLink) {
-          e.preventDefault();
-          readMoreLink.click();
-        }
-      }
-    });
-  });
-});
-
-const playlistScroll = document.getElementById("playlist-scroll");
+const scrollContainer = document.getElementById("playlist-scroll");
+const scrollbarThumb = document.getElementById("scrollbar-thumb");
 const leftButton = document.querySelector(".custom-scrollbar-button.left");
 const rightButton = document.querySelector(".custom-scrollbar-button.right");
-const scrollbarThumb = document.getElementById("scrollbar-thumb");
+const track = document.querySelector(".custom-scrollbar-track");
 
-// Scroll Function
-leftButton.addEventListener("click", () => {
-  playlistScroll.scrollBy({ left: -300, behavior: "smooth" });
-});
+function updateThumbPosition() {
+  const scrollWidth = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+  const trackWidth = track.clientWidth - scrollbarThumb.clientWidth;
 
-rightButton.addEventListener("click", () => {
-  playlistScroll.scrollBy({ left: 300, behavior: "smooth" });
-});
-
-// Update Thumb Position
-function updateThumb() {
-  const scrollWidth = playlistScroll.scrollWidth - playlistScroll.clientWidth;
-  const trackWidth = document.querySelector(".custom-scrollbar-track").clientWidth;
-  const thumbWidth = (playlistScroll.clientWidth / playlistScroll.scrollWidth) * trackWidth;
-  const left = (playlistScroll.scrollLeft / scrollWidth) * (trackWidth - thumbWidth);
-
-  scrollbarThumb.style.width = thumbWidth + "px";
-  scrollbarThumb.style.left = left + "px";
+  const scrollLeft = scrollContainer.scrollLeft;
+  const thumbLeft = (scrollLeft / scrollWidth) * trackWidth;
+  scrollbarThumb.style.left = `${thumbLeft}px`;
 }
 
-playlistScroll.addEventListener("scroll", updateThumb);
-window.addEventListener("resize", updateThumb);
-window.addEventListener("load", updateThumb);
+function scrollByAmount(amount) {
+  scrollContainer.scrollBy({ left: amount, behavior: "smooth" });
+}
+
+scrollContainer.addEventListener("scroll", updateThumbPosition);
+
+leftButton.addEventListener("click", () => scrollByAmount(-300));
+rightButton.addEventListener("click", () => scrollByAmount(300));
+
+scrollbarThumb.addEventListener("mousedown", function (e) {
+  const startX = e.clientX;
+  const startLeft = parseInt(window.getComputedStyle(scrollbarThumb).left);
+
+  function onMouseMove(e) {
+    const dx = e.clientX - startX;
+    const newLeft = Math.min(Math.max(0, startLeft + dx), track.clientWidth - scrollbarThumb.clientWidth);
+
+    scrollbarThumb.style.left = `${newLeft}px`;
+
+    const scrollWidth = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+    const trackWidth = track.clientWidth - scrollbarThumb.clientWidth;
+    const scrollLeft = (newLeft / trackWidth) * scrollWidth;
+    scrollContainer.scrollLeft = scrollLeft;
+  }
+
+  function onMouseUp() {
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
+  }
+
+  document.addEventListener("mousemove", onMouseMove);
+  document.addEventListener("mouseup", onMouseUp);
+});
+
+window.addEventListener("load", updateThumbPosition);
+window.addEventListener("resize", updateThumbPosition);

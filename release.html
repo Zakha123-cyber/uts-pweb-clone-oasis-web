@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
-    <link rel="stylesheet" href="styles/style-news-page.css">
+    <title>Release</title>
+    <link rel="stylesheet" href="styles/style-release-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -101,109 +101,140 @@
     </header>
 
     <main>
-        <section class="news-section">
+        <section class="music-section">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="#">Home</a> › News
+                    <a href="#">Home</a> › Music
                 </div>
 
-                <h1 class="section-title">News</h1>
+                <h1 class="section-title">Music</h1>
 
-                <div class="news-grid">
-                    <!-- News Item 1 -->
-                    <div class="news-item">
-                        <a href="#" class="news-link">
-                            <div class="news-image">
-                                <img src="source/img/news-1.png" alt="Some Might Say vinyl record" />
-                            </div>
-                            <h2 class="news-title">'Some Might Say' Is 30!</h2>
-                            <div class="news-date">25th April 2025</div>
-                            <p class="news-excerpt">
-                                On the 24th April, Oasis' debut number 1, 'Some Might Say', turned 30! To celebrate the
-                                anniversary, a limited-edition, numbered, pearl coloured 7" single has...
-                            </p>
-                        </a>
+                <div class="intro-text">
+                    <p>Over 70 million albums sold. A haul of over 30 awards from the Brits, MTV, NME and Q. Britain's
+                        fastest-selling debut album, soon followed by Britain's fastest-selling album full stop. A place
+                        in the Guinness Book Of Records for scoring 22 consecutive Top Ten singles. All summed up in one
+                        word: Oasis.</p>
+
+                    <p>From the early 1990's Oasis recorded countless songs across their eight albums; they defined a
+                        generation & continue to influence musicians around the globe. They departed in 2009 but their
+                        legacy will live on, for who can resist singing along to 'Live Forever', 'Wonderwall', 'Don't
+                        Look Back In Anger', 'Lyla', 'Rock 'N' Roll Star'…</p>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active">Albums (7)</button>
+                        <button class="filter-btn">Live Albums (2)</button>
+                        <button class="filter-btn">Singles & B-Sides (27)</button>
+                        <button class="filter-btn">Compilations (5)</button>
+                        <button class="filter-btn">Films (5)</button>
                     </div>
 
-                    <!-- News Item 2 -->
-                    <div class="news-item">
-                        <a href="#" class="news-link">
-                            <div class="news-image">
-                                <img src="source/img/news-2.jpg" alt="Record Store Day vinyl collection" />
-                            </div>
-                            <h2 class="news-title">Record Store Day 2025</h2>
-                            <div class="news-date">14th April 2025</div>
-                            <p class="news-excerpt">
-                                Released exclusively for Record Store Day, a very special 15th anniversary vinyl LP of
-                                'Time Flies... 1994-2009' has been made available. 'Time Flies' is the complete...
-                            </p>
-                        </a>
-                    </div>
+                    <div class="filter-controls">
+                        <div class="sort-dropdown">
+                            <select id="sort-order">
+                                <option value="old-new">Old – New</option>
+                                <option value="new-old">New – Old</option>
+                            </select>
+                        </div>
 
-                    <!-- News Item 3 -->
-                    <div class="news-item">
-                        <a href="#" class="news-link">
-                            <div class="news-image">
-                                <img src="source/img/news-3.webp" alt="Manchester City x Oasis merchandise" />
-                            </div>
-                            <h2 class="news-title">Manchester City x Oasis capsule collection</h2>
-                            <div class="news-date">10th February 2025</div>
-                            <p class="news-excerpt">
-                                Manchester City and Oasis have teamed up to create a limited edition capsule collection
-                                celebrating the anniversary of Definitely Maybe and the band's close connection...
-                            </p>
-                        </a>
-                    </div>
-                    <!-- News Item 4 -->
-                    <div class="news-item">
-                        <a href="#" class="news-link">
-                            <div class="news-image">
-                                <img src="source/img/news-4.png" alt="Some Might Say vinyl record" />
-                            </div>
-                            <h2 class="news-title">'Standing On The Shoulder of Giants' is 25!</h2>
-                            <div class="news-date">7th February 2025</div>
-                            <p class="news-excerpt">
-                                February 28th marks the 25th anniversary of Oasis' fourth studio album, 'Standing On The
-                                Shoulder Of Giants. To celebrate, two collector's formats are avaible on...
-                            </p>
-                        </a>
-                    </div>
+                        <div class="search-box">
+                            <input type="text" placeholder="Search music">
+                            <button class="search-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
 
-                    <!-- News Item 5 -->
-                    <div class="news-item">
-                        <a href="#" class="news-link">
-                            <div class="news-image">
-                                <img src="source/img/news-5.png" alt="Record Store Day vinyl collection" />
-                            </div>
-                            <h2 class="news-title">'Whateve' is 30!</h2>
-                            <div class="news-date">19th December 2024</div>
-                            <p class="news-excerpt">
-                                Released on December 19th 1994, 'Whatever' was a stand-alone single that bridged the gap
-                                between albums 'Definitely Maybe' and '(What's The Story) Morning Glory'. To...
-                            </p>
-                        </a>
-                    </div>
-
-                    <!-- News Item 6 -->
-                    <div class="news-item">
-                        <a href="#" class="news-link">
-                            <div class="news-image">
-                                <img src="source/img/news-6.png" alt="Manchester City x Oasis merchandise" />
-                            </div>
-                            <h2 class="news-title">'Love Forever' Represent x Oasis Collection</h2>
-                            <div class="news-date">13th December 2024</div>
-                            <p class="news-excerpt">
-                                Celebrating 30 years of 'Definitely Maybe' and 'Whatever', Oasis are releasing a new
-                                limited edition capsule collection. 'Love Forever' Represent x Oasis Collection will be
-                                available on December 13th...
-                            </p>
-                        </a>
+                        <button class="reset-btn">Reset</button>
                     </div>
                 </div>
-                <div class="button-news-next">
-                    <a href="" class="btn-news-next">1</a>
-                    <a href="" class="btn-news-next">2</a>
-                    <a href="" class="btn-news-next">Next</a>
+
+                <div class="album-grid">
+                    <!-- Album 1 -->
+                    <div class="album-item">
+                        <a href="#" class="album-link">
+                            <div class="album-image">
+                                <img src="/source/img/news-1.png" alt="Definitely Maybe album cover" />
+                            </div>
+                            <div class="album-info">
+                                <h3 class="album-title">Definitely Maybe</h3>
+                                <p class="album-year">1994</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Album 2 -->
+                    <div class="album-item">
+                        <a href="#" class="album-link">
+                            <div class="album-image">
+                                <img src="source/img/release-2.jpg"
+                                    alt="(What's The Story) Morning Glory? album cover" />
+                            </div>
+                            <div class="album-info">
+                                <h3 class="album-title">(What's The Story) Morning Glory?</h3>
+                                <p class="album-year">1995</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Album 3 -->
+                    <div class="album-item">
+                        <a href="#" class="album-link">
+                            <div class="album-image">
+                                <img src="source/img/release-3.jpeg" alt="Be Here Now album cover" />
+                            </div>
+                            <div class="album-info">
+                                <h3 class="album-title">Be Here Now</h3>
+                                <p class="album-year">1997</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Album 4 -->
+                    <div class="album-item">
+                        <a href="#" class="album-link">
+                            <div class="album-image">
+                                <img src="/source/img/release-4.jpg" alt="Definitely Maybe album cover" />
+                            </div>
+                            <div class="album-info">
+                                <h3 class="album-title">Standing On The Shoulder Of Giants</h3>
+                                <p class="album-year">2000</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Album 5 -->
+                    <div class="album-item">
+                        <a href="#" class="album-link">
+                            <div class="album-image">
+                                <img src="source/img/release-5.jpg"
+                                    alt="(What's The Story) Morning Glory? album cover" />
+                            </div>
+                            <div class="album-info">
+                                <h3 class="album-title">Heathen Chemistry</h3>
+                                <p class="album-year">2002</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Album 6 -->
+                    <div class="album-item">
+                        <a href="#" class="album-link">
+                            <div class="album-image">
+                                <img src="source/img/release-6.png" alt="Be Here Now album cover" />
+                            </div>
+                            <div class="album-info">
+                                <h3 class="album-title">Dont't Believe The Truth</h3>
+                                <p class="album-year">2005</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -405,7 +436,7 @@
         </section>
     </footer>
 
-    <script src="js/script-news-page.js"></script>
+    <script src="js/script-release-page.js"></script>
 </body>
 
 </html>

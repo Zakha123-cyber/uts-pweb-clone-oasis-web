@@ -370,7 +370,7 @@ body {
 
 /* Fan Community Section */
 .fan-community {
-  background: url("https://i.pinimg.com/originals/bd/46/e2/bd46e221acc786c3d5e0e9c82e22da8e.jpg") center/cover no-repeat;
+  background: url("https://i.pinimg.com/originals/bd/46/e2/bd46e221acc786c3d5e0e9c82e22da8e.jpg") top/cover no-repeat;
   background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: overlay;
   min-height: 300px;
@@ -748,11 +748,11 @@ input:checked + .toggle-slider:before {
   scroll-behavior: smooth;
   padding-bottom: 20px;
   gap: 20px;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .playlist-scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  display: none;
 }
 
 .playlist-card {
@@ -816,7 +816,7 @@ input:checked + .toggle-slider:before {
   font-size: 16px;
 }
 
-/* Custom Scrollbar Control */
+/* Custom Scrollbar */
 .custom-scrollbar-container {
   width: 100%;
   height: 20px;
